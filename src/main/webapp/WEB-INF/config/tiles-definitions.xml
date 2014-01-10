@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="base.definition" template="/WEB-INF/jsps/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/jsps/layouts/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsps/layouts/menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/jsps/layouts/footer.jsp" />
+	</definition>
+
+	<!-- Application -->
+	<definition name="application.index" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/jsps/index.jsp" />
+	</definition>
+
+	<!-- Admin -->
+	<definition name="admin.jboss.snoop" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/jsps/admin/jboss/snoop.jsp" />
+	</definition>
+
+	<!-- Runners -->
+	<definition name="runners.index" extends="base.definition">
+		<put-attribute name="title" value="Runners Manager" />
+		<put-attribute name="body" value="/WEB-INF/jsps/runners/index.jsp" />
+	</definition>
+	<definition name="runners.form" extends="base.definition">
+		<put-attribute name="title" value="Runner Manager" />
+		<put-attribute name="body" value="/WEB-INF/jsps/runners/form.jsp" />
+	</definition>
+
+</tiles-definitions>

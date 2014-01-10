@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<context:component-scan base-package="com.dogmaweb.controller" />
+	
+	<mvc:annotation-driven />
+
+	<!-- View Resolver for JSP -->
+	<!-- 
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/jsps/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+	-->
+	<!-- 
+	<mvc:resources mapping="/static/**" location="/static/"/>
+    <mvc:default-servlet-handler/>
+    -->	
+
+	<import resource="spring-mvc-tiles.xml" />
+	<import resource="spring-mvc-i18n.xml" />
+	<import resource="spring-mvc-themes.xml" />
+	
+	<!-- Handler Mapping -->
+	<mvc:interceptors>
+		<ref bean="localeChangeInterceptor" />
+		<ref bean="themeChangeInterceptor" />
+    </mvc:interceptors>
+    
+    <!-- 
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="net.petrikainulainen.spring.testmvc.todo.exception.TodoNotFoundException">error/404</prop>
+                <prop key="java.lang.Exception">error/error</prop>
+                <prop key="java.lang.RuntimeException">error/error</prop>
+            </props>
+        </property>
+        <property name="statusCodes">
+            <props>
+                <prop key="error/404">404</prop>
+                <prop key="error/error">500</prop>
+            </props>
+        </property>
+    </bean>
+    -->
+    
+    <!-- Conversational Scope -->
+    <bean id="conversationalSessionAttributeStore" class="com.dogmaweb.springframework.web.bind.support.ConversationalSessionAttributeStore">
+  		<property name="keepAliveConversations" value="10"/>
+	</bean>
+	<bean name="requestDataValueProcessor" class="com.dogmaweb.springframework.web.servlet.support.ConversationIdRequestProcessor"/>
+
+</beans>
