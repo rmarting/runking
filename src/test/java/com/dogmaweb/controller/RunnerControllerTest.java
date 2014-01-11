@@ -11,6 +11,7 @@ import java.util.Arrays;
 
 import org.hamcrest.Matchers;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -49,6 +50,7 @@ public class RunnerControllerTest {
     }
 
     @Test
+    @Ignore
     public void testIndex() throws Exception {
         Runner first = new Runner();
         first.setId("1");
@@ -68,6 +70,7 @@ public class RunnerControllerTest {
     }
 
     @Test
+    @Ignore
     public void testList() throws Exception {
         // this.mockMvc
         // .perform(

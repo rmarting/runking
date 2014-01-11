@@ -15,6 +15,7 @@ import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.dogmaweb.mongodb.MongoDBServiceTest;
@@ -111,6 +112,7 @@ public class RunnerRSTest {
     }
 
     @Test
+    @Ignore
     public void testCreate() {
         fail("Not yet implemented"); // TODO
 
@@ -119,11 +121,13 @@ public class RunnerRSTest {
     }
 
     @Test
+    @Ignore
     public void testUpdate() {
         fail("Not yet implemented"); // TODO
     }
 
     @Test
+    @Ignore
     public void testDelete() {
         fail("Not yet implemented"); // TODO
     }
